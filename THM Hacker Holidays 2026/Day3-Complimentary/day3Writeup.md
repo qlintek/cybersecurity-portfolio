@@ -71,15 +71,15 @@ Full Disclosure from this point: I had no idea how to navigate AWS Dynamo from h
 
 So this code basically uses AWS Cognito Identity pool to generate a guest identity that will allow visitors to the site to have a profile without having to go through account creation. This is a fairly common thing to do but you have to be careful with identity and access management when allowing it to do it this way. To exploit vulnerabilities in this IAM I created an account using the command line. 
 
-![alt text](<Screenshot 2026-08-01 162319.png>)
+![alt text](<Screenshots/Screenshot 2026-08-01 162319.png>)
 
 then I gave that temporary identity credentials for a full identity
 
-![alt text](<Screenshot 2026-08-01 162511.png>)
+![alt text](<Screenshots/Screenshot 2026-08-01 162511.png>)
 I had to export those identity details to my machine to be able to access AWS as that user.
 When I checked my caller id I realized I had made a typo in pulling the info
 
-![alt text](<Screenshot 2026-08-01 162843.png>)
-and now with a user id I was able to scan the associated table with guest wellness profiles for the site. ![alt text](<Screenshot 2026-08-01 163041.png>)
+![alt text](<Screenshots/Screenshot 2026-08-01 162843.png>)
+and now with a user id I was able to scan the associated table with guest wellness profiles for the site. ![alt text](<Screenshots/Screenshot 2026-08-01 163041.png>)
 
 And the flag was found in one of the saved profiles
