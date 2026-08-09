@@ -17,7 +17,7 @@ and found a lot of activity between IPs `192.168.1.141` and `34.41.103.191` I kn
 
 doing some digging I found this strange HTTP stream between those two addresses
 
-![alt text](<Screenshot 2026-08-03 190629.png>)
+![alt text](<Screenshots/Screenshot 2026-08-03 190629.png>)
 The response is suspicious because it include a python script- so I inspected the python script a bit further:
 
 ```
