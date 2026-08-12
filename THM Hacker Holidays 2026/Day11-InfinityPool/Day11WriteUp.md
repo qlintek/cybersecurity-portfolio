@@ -103,25 +103,25 @@ There is some kind of option to confirm a remote property here. and the app.js f
 
 Well I found it and I think this is where we can start causing some trouble. I wanted to try to see what this internal netcheck page did so I tried to go to that and was not allowed. this means teh the `/internal/netcheck` page is blocked externally and is intended to only be accessed from the `/status` page
 
-![[day11-005.png]]![alt text](Screenshots/Day11-005.png)
+![alt text](Screenshots/Day11-005.png)
 I am hoping to use burp to explore what this system is doing when I make a request to it but I figure it will probably block something I am going to need to figure out how the underlying logic works. maybe there is a CVE for "netcheck" I will look at later.
 oh interesting what it actually did was ping the attack box when I ran it...
 
-![[day11-006.png]]![alt text](Screenshots/Day11-006.png)
+![alt text](Screenshots/Day11-006.png)
 
 The fact this page has the ability to ping URLs mean it is running a command that accepts a user input as an argument: which may mean it is susceptible to code injection.
 #### Initial Exploitation (Reverse Shell via Netcheck)
 I used revshells.com to form the reverse shell packet I am going to try to inject into the site. started a listener and submitted a curl request formed so that it will deliver a shell request to send to my attack box.
 
-![[day11-007.png]]![alt text](Screenshots/Day11-007.png)
+![alt text](Screenshots/Day11-007.png)
 
 I used a curl command because it is easier to control what I am sending that way and I have my listener set up in an other window
 
-![[Day11-008.png]]![alt text](Screenshots/Day11-008.png)
+![alt text](Screenshots/Day11-008.png)
 
 My syntax on this was actually wrong and it gave me a syntax error twice when trying it. and then I realized I forgot to put the reverse shell script inside quotation marks.
 
-![[Day11-009.png]]![alt text](Screenshots/Day11-009.png)
+![alt text](Screenshots/Day11-009.png)
 
 Once i corrected that typo I was in.
 
@@ -129,9 +129,9 @@ So basically what this winds up doing in plain English is "Silently send a reque
 #### User Flag Retrieval
 Knowing how tryhackme hides their flags I searched for user.txt:
 
-![[Day11-010.png]]![alt text](Screenshots/Day11-010.png)
+![alt text](Screenshots/Day11-010.png)
 pretty easy to find lets try to cat it and get the flag:
-![[Day11-011.png]]![alt text](Screenshots/Day11-011.png)
+![alt text](Screenshots/Day11-011.png)
 
 and item 1 done.
 ##### User Flag
@@ -213,7 +213,9 @@ The tutorial said they needed to use Chisel to get internal access to the target
 Port Forwarding basically transmits the traffic from my port directly to the same port on their server, so it simulates being inside their computer. 
 ![alt text](Screenshots/Day11-020.png)
 ![alt text](Screenshots/Day11-021.png)
+
 I had to add every single widget to this dashboard before I finally found a widget that had some information populated on it.
+
 ![alt text](Screenshots/Day11-022.png)
 
 
