@@ -54,3 +54,5 @@ Flat Network
 ```
 
 
+## Construction Notice
+🚧 This project is in the early planning stage. Systems are not yet deployed, and documentation will expand as the homelab is built and telemetry begins flowing.
